@@ -19,12 +19,19 @@ function App() {
       return [courseGoal, ...prevData];
     })
   }
+
+  const deleteItemHandler = (goalId) => {
+    setCourseGoals(prevData => {
+      const updatedGoals = prevData.filter(goal => goal.id !== goalId)
+      return updatedGoals;
+    });
+  }
    
 
   return (
     <div>
       <CourseGoalForm onSaveGoal={saveGoalHander}/>
-      <CourseGoalList items={courseGoals}/>
+      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler}/>
     </div>
     
   );

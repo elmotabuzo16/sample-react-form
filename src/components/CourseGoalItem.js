@@ -1,8 +1,13 @@
 const CourseGoalItem = (props) => {
 
-// props are coming from CourseGoalList.js
+     const removeData = () => {
+          props.onDelete(props.id);
+     }
+      
+     
+     // props are coming from CourseGoalList.js
     return (
-       <li key={props.id}>
+       <li key={props.id} onClick={removeData}>
             {props.text}
        </li>
      );
